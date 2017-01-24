@@ -1,8 +1,8 @@
-.movieGroup h3 {
+.showTime {
   cursor: pointer;
 }
 
-.movieGroup h3:hover {
+.showTime:hover {
   text-decoration: underline;
   color: #0088cc
 }
