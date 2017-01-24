@@ -1,5 +1,5 @@
 
-var fele = { name: "5thEl"};
+var fele = { name: "The 5th Element"};
 var goodWill = { name: "Good Will Hunting"};
 var sev = { name: "Se7en"};
 var batman = { name: "The Dark Knight"};
@@ -51,66 +51,67 @@ function matMulti (price, quantity) {
   } else if (price === 1) {
     return quantity * 8.00;
   } else if (price === 2) {
-  return quantity * 10.00;
+    return quantity * 10.00;
   } else {
     return price * 6.00;
-  } 
-
-function ngtMulti (price, quantity) {
-  if (price === 0) {
-    return quantity * 10.00;
-  } else if (price === 1) {
-    return quantity * 10.00;
-  } else if (price === 2) {
-    return quantity * 12.00;
-  } else {
-    return quantity * 9.00;
   }
 }
 
-// function matPrice (custType, period) {
-//
-// }
+  function ngtMulti (price, quantity) {
+    if (price === 0) {
+      return quantity * 10.00;
+    } else if (price === 1) {
+      return quantity * 10.00;
+    } else if (price === 2) {
+      return quantity * 12.00;
+    } else {
+      return quantity * 9.00;
+    }
+  }
 
-$(document).ready(function() {
+  $(document).ready(function() {
 
-  $("#5thEl").click(function() {
-    $("#5thElTimes Ul").empty().toggle()
-    var timeArr = movie.fele.time.time;
-    timeArr.forEach(function(time) {
-      var matOrNgt = checkIfMat(time, movie.fele.mat.time)
-      $("#5thElTimes Ul").append("<li class=" + matOrNgt + ">" + time + "</li>")
+    $("#5thEl").click(function() {
+      $("#5thElTimes Ul").empty().toggle()
+      var timeArr = movie.fele.time.time;
+      timeArr.forEach(function(time) {
+        var matOrNgt = checkIfMat(time, movie.fele.mat.time)
+        $("#5thElTimes Ul").append("<li class=" + matOrNgt + ">" + time + "</li>")
+      });
+      // $("#5thElTimes").click(function() {
+      //   $(".custTypeSel").empty();
+      //   for (var i = 0; i < custType.length; i++) {
+      //     $(".custTypeSel").append("<option value=" + i + ">" + custType[i].name + "</option>");
+      //   }
+      //   $(".custPrice").show();
+      // })
+
+      $(".mat").click(function() {
+        $(".custTypeSel").empty();
+        for(var i = 0; i < custType.length; i++) {
+          $(".custTypeSel").append("<option value=" + i + ">" + custType[i].name + " " + custType[i].mat + "</option>");
+        }
+        $("#orderForm").submit(function(event) {
+          event.preventDefault();
+          $(".finalPrice").show();
+          $("#tixQty").text($(".custQty").val());
+          $("#movieName").text(fele.name);
+        });
+        $(".custPrice").show();
+      });
+
+        $(".night").click(function() {
+          $(".custTypeSel").empty();
+          for(var i = 0; i < custType.length; i++) {
+            $(".custTypeSel").append("<option value=" + i + ">" + custType[i].name + " " + custType[i].ngt + "</option>");
+          }
+          $("#orderForm").submit(function(event) {
+            event.preventDefault();
+            $(".finalPrice").show();
+            $("#tixQty").text($(".custQty").val());
+            $("#movieName").text(fele.name);
+          });
+          $(".custPrice").show();
+        });
     });
-    // $("#5thElTimes").click(function() {
-    //   $(".custTypeSel").empty();
-    //   for (var i = 0; i < custType.length; i++) {
-    //     $(".custTypeSel").append("<option value=" + i + ">" + custType[i].name + "</option>");
-    //   }
-    //   $(".custPrice").show();
-    // })
-
-    $(".mat").click(function() {
-      $(".custTypeSel").empty();
-      for(var i = 0; i < custType.length; i++) {
-        $(".custTypeSel").append("<option value=" + i + ">" + custType[i].name + " " + custType[i].mat + "</option>");
-      }
-      $().submit(function() {
-       $(".custPrice").show();
-    })
-
-    $(".night").click(function() {
-      $(".custTypeSel").empty();
-      for(var i = 0; i < custType.length; i++) {
-        $(".custTypeSel").append("<option value=" + i + ">" + custType[i].name + " " + custType[i].ngt + "</option>");
-      }
-      $().submit(function() {
-       $(".custPrice").show();
-    })
-
-    })
-
   });
-
-
-
-});
