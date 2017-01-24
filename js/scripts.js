@@ -46,23 +46,23 @@ function checkIfMat (time, array) {
 }
 
 function matMulti (price, quantity) {
-  if (price === 0) {
-    return quatity * 7.00;
-  } else if (price === 1) {
+  if (price === "0") {
+    return quantity * 7.00;
+  } else if (price === "1") {
     return quantity * 8.00;
-  } else if (price === 2) {
+  } else if (price === "2") {
     return quantity * 10.00;
   } else {
-    return price * 6.00;
+    return quantity * 6.00;
   }
 }
 
   function ngtMulti (price, quantity) {
-    if (price === 0) {
+    if (price === "0") {
       return quantity * 10.00;
-    } else if (price === 1) {
+    } else if (price === "1") {
       return quantity * 10.00;
-    } else if (price === 2) {
+    } else if (price === "2") {
       return quantity * 12.00;
     } else {
       return quantity * 9.00;
@@ -96,6 +96,7 @@ function matMulti (price, quantity) {
           $(".finalPrice").show();
           $("#tixQty").text($(".custQty").val());
           $("#movieName").text(fele.name);
+          $("#totalPrice").text(matMulti($(".custTypeSel").val(), $(".custQty").val()))
         });
         $(".custPrice").show();
       });
@@ -110,6 +111,7 @@ function matMulti (price, quantity) {
             $(".finalPrice").show();
             $("#tixQty").text($(".custQty").val());
             $("#movieName").text(fele.name);
+            $("#totalPrice").text(ngtMulti($(".custTypeSel").val(), $(".custQty").val()))
           });
           $(".custPrice").show();
         });

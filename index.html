@@ -16,8 +16,8 @@
       <h2>Your neighborhood picture show</h2>
     </div>
 
-    <div class="row">
-      <div class="col-md-4 well">
+    <div class="row well">
+      <div class="col-md-4">
 
         <div class="movieGroup">
           <div id="5thEl">
@@ -32,7 +32,7 @@
         </div>
       </div>
 
-      <div class="col-md-4 well">
+      <div class="col-md-4">
         <div class="custPrice">
           <form id="orderForm">
             <select class="form-control custTypeSel"></select>
@@ -48,10 +48,13 @@
 
   </div>
 
-  <div class="col-md-4 well">
+  <div class="col-md-4">
     <div class="finalPrice">
       <p>
         You have ordered <span id="tixQty"></span> tickets for the <span id="movieTime"></span> showing of <span id="movieName"></span>!
+      </p><br><br><br>
+      <p class="total">
+        Your total is $<span id="totalPrice"></span>.00
       </p>
     </div>
 
