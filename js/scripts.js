@@ -37,9 +37,36 @@ sev.ngt = { time: [300, 520, 735, 1035]};
 batman.ngt = { time: [310, 630, 850, 1120]};
 zoo.ngt = { time: [330, 545, 730, 945]}
 
-// function matNgt () {
-//   if ()
-// }
+function checkIfMat (time, array) {
+  if (array.indexOf(time) !== -1) {
+    return "mat";
+  } else {
+    return "night"
+  }
+}
+
+function matMulti (price, quantity) {
+  if (price === 0) {
+    return quatity * 7.00;
+  } else if (price === 1) {
+    return quantity * 8.00;
+  } else if (price === 2) {
+  return quantity * 10.00;
+  } else {
+    return price * 6.00;
+  } 
+
+function ngtMulti (price, quantity) {
+  if (price === 0) {
+    return quantity * 10.00;
+  } else if (price === 1) {
+    return quantity * 10.00;
+  } else if (price === 2) {
+    return quantity * 12.00;
+  } else {
+    return quantity * 9.00;
+  }
+}
 
 // function matPrice (custType, period) {
 //
@@ -51,16 +78,39 @@ $(document).ready(function() {
     $("#5thElTimes Ul").empty().toggle()
     var timeArr = movie.fele.time.time;
     timeArr.forEach(function(time) {
-      $("#5thElTimes Ul").append("<li>" + time + "</li>")
+      var matOrNgt = checkIfMat(time, movie.fele.mat.time)
+      $("#5thElTimes Ul").append("<li class=" + matOrNgt + ">" + time + "</li>")
     });
-    $("#5thElTimes").click(function() {
-      $(".custPrice ul").empty();
-      for (var i = 0; i < custType.length; i++) {
-        $(".custPrice ul").append("<li>" + custType[i].name + "</li>");
+    // $("#5thElTimes").click(function() {
+    //   $(".custTypeSel").empty();
+    //   for (var i = 0; i < custType.length; i++) {
+    //     $(".custTypeSel").append("<option value=" + i + ">" + custType[i].name + "</option>");
+    //   }
+    //   $(".custPrice").show();
+    // })
+
+    $(".mat").click(function() {
+      $(".custTypeSel").empty();
+      for(var i = 0; i < custType.length; i++) {
+        $(".custTypeSel").append("<option value=" + i + ">" + custType[i].name + " " + custType[i].mat + "</option>");
       }
+      $().submit(function() {
+       $(".custPrice").show();
+    })
+
+    $(".night").click(function() {
+      $(".custTypeSel").empty();
+      for(var i = 0; i < custType.length; i++) {
+        $(".custTypeSel").append("<option value=" + i + ">" + custType[i].name + " " + custType[i].ngt + "</option>");
+      }
+      $().submit(function() {
+       $(".custPrice").show();
+    })
+
     })
 
   });
+
 
 
 });

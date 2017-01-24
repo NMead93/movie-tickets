@@ -34,15 +34,31 @@
 
       <div class="col-md-4 well">
         <div class="custPrice">
-          <ul>
+          <form id="orderForm">
+            <select class="form-control custTypeSel"></select>
+          </br>
+          <label for="quantity">How many tickets would you like?</label>
+          <input class="form-control custQty" type="text">
+        </br>
+        <button type="submit" class="btn btn-warning" name="button" id="custPriceSubmit">Submit</button>
+      </form>
 
-          </ul>
-        </div>
-
-      </div>
 
     </div>
+
   </div>
+
+  <div class="col-md-4 well">
+    <div class="finalPrice">
+      <p>
+        You have ordered <span id="tixQty"></span> tickets for the <span id="movieTime"></span> showing of <span id="movieName"></span>!
+      </p>
+    </div>
+
+  </div>
+
+</div>
+</div>
 
 
 

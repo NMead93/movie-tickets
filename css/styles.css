@@ -7,6 +7,15 @@
   color: #0088cc
 }
 
-#5thEl {
-  border-color: 3px black;
+.custPrice {
+  display: none;
+}
+
+.mat, .night {
+  cursor: pointer;
+}
+
+.mat:hover, .night:hover {
+  text-decoration: underline;
+  color: #0088cc;
 }
